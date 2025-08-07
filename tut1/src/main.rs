@@ -115,7 +115,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 fn main(){
     let a = read_username_from_file();
     match a {
-        Ok(data) => println!("gg {}", data),
+        Ok(data) => println!("Contents:\n{}", data),
         Err(e) => println!("Error: {}", e),
     }
 }
