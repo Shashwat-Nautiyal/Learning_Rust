@@ -1,3 +1,6 @@
+// a TCP server just deliver bytes, it does not define the data represented by the bytes. (transport layer) Simply low-level data transmisssion
+// an http server defines how the data in the TCP connection is organized (Application layer)
+
 // use std::io::{Read, Write};
 // use std::net::{TcpListener, TcpStream};
 
