@@ -6,6 +6,11 @@
 //     let mut map: HashMap<String, Vec<i32>> = HashMap::new();
 //     for (key, value) in vec {
 //         map.entry(key).or_insert(vec![]).push(value);
+//        
+// .or_insert(vec![]) - Ensures a value exists
+// If the key is vacant: inserts a new empty vector vec![] and returns a mutable reference to it
+// If the key is occupied: returns a mutable reference to the existing value
+// Either way, you get &mut Vec<_>
 //     }
 //     map
 // }
