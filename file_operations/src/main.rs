@@ -5,12 +5,13 @@
 // fn tut(vec: Vec<(String, i32)>) -> HashMap<String, Vec<i32>> {
 //     let mut map: HashMap<String, Vec<i32>> = HashMap::new();
 //     for (key, value) in vec {
-//         map.entry(key).or_insert(vec![]).push(value);
-//        
-// .or_insert(vec![]) - Ensures a value exists
-// If the key is vacant: inserts a new empty vector vec![] and returns a mutable reference to it
-// If the key is occupied: returns a mutable reference to the existing value
-// Either way, you get &mut Vec<_>
+
+        // .or_insert(vec![]) - Ensures a value exists
+        // If the key is vacant: inserts a new empty vector vec![] and returns a mutable reference to it
+        // If the key is occupied: returns a mutable reference to the existing value
+        // Either way, you get &mut Vec<_>
+        
+//         map.entry(key).or_insert(vec![]).push(value);        
 //     }
 //     map
 // }
@@ -119,9 +120,11 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 
 fn main(){
-    let a = read_username_from_file();
+    let a: Result<String, io::Error> = read_username_from_file();
+    let mut d = String::from("hiaihaahahaa \n");
     match a {
-        Ok(data) => println!("Contents:\n{}", data),
+        Ok(data) =>{ println!("Contents:\n{}", data);  d += &data;},
         Err(e) => println!("Error: {}", e),
     }
+    println!("modified: \n {}", d);
 }

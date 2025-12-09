@@ -1,6 +1,6 @@
 // use clap::{Parser, Subcommand};
 
-// #[derive(Parser)]
+// #[derive(Parser)]    // used with struct that represents top-level cli command
 // #[command(name = "Bitcoin CLI")]
 // #[command(version = "1.0")]
 // #[command(about = "Bitcoin Core RPC Client", long_about = None)]
@@ -66,7 +66,7 @@
 // fn main() {
 //     let args = Args::parse();
 
-//     println!("User no : , {}!", args.num);
+//     println!("User no :  {}!", args.num);
 //     println!("Hello, {}!", args.name);
 
 //     if args.verbose {
@@ -75,76 +75,41 @@
 // }
 
 
-use clap::{Parser, Subcommand};
-
-#[derive(Parser, Debug)]
-struct Cli{
-    #[command(subcommand)]
-    commands : Option<Commands>
-}
-
-#[derive(Subcommand, Debug)]
-enum Commands{
-    add{
-        a: u32,
-        b: u32,
-    },
-    mul{
-        a: u32,
-        b: u32,
-    }
-}
-
-fn main(){
-
-    let cli = Cli::parse();
-
-    match &cli.commands {
-         Some(Commands::add{a, b})=>{
-            println!("Addition = {}", a + b);
-         }
-         Some(Commands::mul{a, b})=>{
-            println!("Mltiplication = {}",a*b);
-         }
-         None => {
-            println!("No command\n");
-         }
-    }
-}
-
-
 // use clap::{Parser, Subcommand};
 
 // #[derive(Parser, Debug)]
-// struct Cli {
+// struct Cli{
 //     #[command(subcommand)]
-//     commands: Option<Commands>,
+//     commands : Option<Commands>
 // }
 
 // #[derive(Subcommand, Debug)]
-// enum Commands {
-//     Add {
+// enum Commands{
+//     Add{
 //         a: u32,
 //         b: u32,
 //     },
-//     Mul {
+//     Mul{
 //         a: u32,
 //         b: u32,
-//     },
+//     }
 // }
 
-// fn main() {
+// fn main(){
+
 //     let cli = Cli::parse();
 
 //     match &cli.commands {
-//         Some(Commands::Add { a, b }) => {
+//          Some(Commands::Add{a, b})=>{
 //             println!("Addition = {}", a + b);
-//         }
-//         Some(Commands::Mul { a, b }) => {
-//             println!("Multiplication = {}", a * b);
-//         }
-//         None => {
+//          }
+//          Some(Commands::Mul{a, b})=>{
+//             println!("Mltiplication = {}",a*b);
+//          }
+//          None => {
 //             println!("No command\n");
-//         }
+//          }
 //     }
 // }
+
+
